@@ -5,8 +5,8 @@ return {
       filesystem = {
         filtered_items = {
           visible = false,
-          hide_by_pattern = {
-            "__*"
+          always_show = {
+            ".gitignore"
           }
         }
       }

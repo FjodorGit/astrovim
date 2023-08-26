@@ -64,8 +64,10 @@ maps.n["<b"] = {
 }
 
 maps.n["<leader>b"] = sections.b
-maps.n["<leader>bc"] = { function() require("astronvim.utils.buffer").close_all(true) end,
-  desc = "Close all buffers except current" }
+maps.n["<leader>bc"] = {
+  function() require("astronvim.utils.buffer").close_all(true) end,
+  desc = "Close all buffers except current"
+}
 maps.n["<leader>bC"] = { function() require("astronvim.utils.buffer").close_all() end, desc = "Close all buffers" }
 maps.n["<leader>bb"] = {
   function()

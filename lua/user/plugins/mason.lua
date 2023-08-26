@@ -5,7 +5,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     -- overrides `require("mason-lspconfig").setup(...)`
     opts = {
-      ensure_installed = { "lua_ls", "pyright" },
+      ensure_installed = { "lua_ls", "pyright", "rust_analyzer", "texlab", "clangd" },
     },
   },
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
@@ -20,7 +20,11 @@ return {
     "jay-babu/mason-nvim-dap.nvim",
     -- overrides `require("mason-nvim-dap").setup(...)`
     opts = {
-      -- ensure_installed = { "python" },
-    },
+      ensure_installed = { "python" },
+    }
   },
+  {
+    "mfussenegger/nvim-dap-python",
+    opts = "~/Bachelorarbeit/bin/python3.10"
+  }
 }

@@ -17,6 +17,7 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "nvim-neotest/neotest-python",
+      "rouge8/neotest-rust",
       "antoinemadec/FixCursorHold.nvim"
     },
     config = function()
@@ -24,7 +25,10 @@ return {
         adapters = {
           require("neotest-python")({
             runners = "pytest"
-          })
+          }),
+          require("neotest-rust") {
+            args = { "--all-features" }
+          }
         }
       })
     end

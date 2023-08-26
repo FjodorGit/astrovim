@@ -24,9 +24,12 @@ return {
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     --
-    -- quickly switch buffers
+    -- quickly switch buffers / !!! conflicts with switching windows up and down
     -- ["<C-j>"] = { ":bp<cr>", desc = "Moves one tab to the left" },
     -- ["<C-k>"] = { ":bn<cr>", desc = "Moves one tab to the right" }
+    ["<C-n>"] = { ":bp<cr>", desc = "Moves one tab to the left" },
+    ["<C-p>"] = { ":bn<cr>", desc = "Moves one tab to the right" },
+    -- Testing
     ['<leader>t'] = { name = " Testing" },
     ["<leader>tt"] = {
       function()
@@ -47,7 +50,7 @@ return {
   },
   i = {
     -- quickly switch buffers even when in insert mode
-    -- ["<C-j>"] = { "<esc>:bp<cr>", desc = "Moves one tab to the left" },
-    -- ["<C-k>"] = { "<esc>:bn<cr>", desc = "Moves one tab to the right" }
+    ["<C-n>"] = { "<cmd>bp<cr>", desc = "Moves one tab to the left" },
+    ["<C-p>"] = { "<cmd>:bn<cr>", desc = "Moves one tab to the right" }
   }
 }
