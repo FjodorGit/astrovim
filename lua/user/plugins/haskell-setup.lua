@@ -1,0 +1,37 @@
+-- If I potentialy need a haskell setup
+--
+-- return {
+-- {
+--   "mrcjkb/haskell-tools.nvim",
+--   dependencies = {
+--     "nvim-lua/plenary.nvim",
+--     "nvim-telescope/telescope.nvim", -- optional
+--     "camilledejoye/nvim-lsp-selection-range",
+--     "hrsh7th/cmp-nvim-lsp",
+--   },
+--   ft = { "haskell", "lhaskell", "cabal", "cabalproject" },
+--   branch = "master", -- Recommended
+--   init = function()
+--     vim.g.haskell_tools = {
+--       hls = {
+--         auto_attach = true,
+--         on_attach = function(client, bufnr, ht)
+--           require("astronvim.utils.lsp").on_attach(client, bufnr)
+--           -- Set keybindings, etc. here.
+--           vim.keymap.set("n", "<space>lc", vim.lsp.codelens.run, { desc = "Codelens run" })
+--         end,
+--         settings = {
+--           haskell = {
+--             formattingProvider = "fourmolu",
+--             -- plugin = {
+--             --   ["codeRange"] = {
+--             --     globalOn = false,
+--             --   },
+--             -- },
+--           },
+--         },
+--       },
+--     }
+--   end,
+-- },
+-- }

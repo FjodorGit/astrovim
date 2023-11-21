@@ -7,7 +7,6 @@ docs
 ftplugin
 ginit.vim
 ftplugin
-lua/user
 neoconf.json
 plugin
 queries

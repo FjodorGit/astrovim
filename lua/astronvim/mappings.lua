@@ -51,7 +51,7 @@ maps.n["<leader>pl"] = { "<cmd>AstroChangelog<cr>", desc = "AstroNvim Changelog"
 maps.n["<leader>c"] = { function() require("astronvim.utils.buffer").close() end, desc = "Close buffer" }
 maps.n["<leader>C"] = { function() require("astronvim.utils.buffer").close(0, true) end, desc = "Force close buffer" }
 maps.n["]b"] =
-{ function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer" }
+  { function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer" }
 maps.n["[b"] = {
   function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
   desc = "Previous buffer",
@@ -68,13 +68,13 @@ maps.n["<b"] = {
 maps.n["<leader>b"] = sections.b
 maps.n["<leader>bc"] = {
   function() require("astronvim.utils.buffer").close_all(true) end,
-  desc = "Close all buffers except current"
+  desc = "Close all buffers except current",
 }
 maps.n["<leader>bC"] = { function() require("astronvim.utils.buffer").close_all() end, desc = "Close all buffers" }
 maps.n["<leader>bl"] =
-{ function() require("astronvim.utils.buffer").close_left() end, desc = "Close all buffers to the left" }
+  { function() require("astronvim.utils.buffer").close_left() end, desc = "Close all buffers to the left" }
 maps.n["<leader>br"] =
-{ function() require("astronvim.utils.buffer").close_right() end, desc = "Close all buffers to the right" }
+  { function() require("astronvim.utils.buffer").close_right() end, desc = "Close all buffers to the right" }
 maps.n["<leader>bs"] = sections.bs
 maps.n["<leader>bse"] = { function() require("astronvim.utils.buffer").sort "extension" end, desc = "By extension" }
 maps.n["<leader>bsr"] =
@@ -147,7 +147,7 @@ if is_available "Comment.nvim" then
     desc = "Toggle comment for selection",
   }
   maps.v["<leader>/"] =
-  { "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", desc = "Toggle comment line" }
+    { "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", desc = "Toggle comment line" }
 end
 
 -- GitSigns
@@ -189,7 +189,7 @@ if is_available "neovim-session-manager" then
   maps.n["<leader>Sd"] = { "<cmd>SessionManager! delete_session<cr>", desc = "Delete session" }
   maps.n["<leader>Sf"] = { "<cmd>SessionManager! load_session<cr>", desc = "Search sessions" }
   maps.n["<leader>S."] =
-  { "<cmd>SessionManager! load_current_dir_session<cr>", desc = "Load current directory session" }
+    { "<cmd>SessionManager! load_current_dir_session<cr>", desc = "Load current directory session" }
 end
 if is_available "resession.nvim" then
   maps.n["<leader>S"] = sections.S
@@ -259,11 +259,11 @@ if is_available "telescope.nvim" then
     function()
       local cwd = vim.fn.stdpath "config" .. "/.."
       local search_dirs = {}
-      for _, dir in ipairs(astronvim.supported_configs) do                      -- search all supported config locations
-        if dir == astronvim.install.home then dir = dir .. "/lua/user" end      -- don't search the astronvim core files
+      for _, dir in ipairs(astronvim.supported_configs) do -- search all supported config locations
+        if dir == astronvim.install.home then dir = dir .. "/lua/user" end -- don't search the astronvim core files
         if vim.fn.isdirectory(dir) == 1 then table.insert(search_dirs, dir) end -- add directory to search if exists
       end
-      if vim.tbl_isempty(search_dirs) then                                      -- if no config folders found, show warning
+      if vim.tbl_isempty(search_dirs) then -- if no config folders found, show warning
         utils.notify("No user configuration files found", vim.log.levels.WARN)
       else
         if #search_dirs == 1 then cwd = search_dirs[1] end -- if only one directory, focus cwd
@@ -290,12 +290,12 @@ if is_available "telescope.nvim" then
   maps.n["<leader>fm"] = { function() require("telescope.builtin").man_pages() end, desc = "Find man" }
   if is_available "nvim-notify" then
     maps.n["<leader>fn"] =
-    { function() require("telescope").extensions.notify.notify() end, desc = "Find notifications" }
+      { function() require("telescope").extensions.notify.notify() end, desc = "Find notifications" }
   end
   maps.n["<leader>fo"] = { function() require("telescope.builtin").oldfiles() end, desc = "Find history" }
   maps.n["<leader>fr"] = { function() require("telescope.builtin").registers() end, desc = "Find registers" }
   maps.n["<leader>ft"] =
-  { function() require("telescope.builtin").colorscheme { enable_preview = true } end, desc = "Find themes" }
+    { function() require("telescope.builtin").colorscheme { enable_preview = true } end, desc = "Find themes" }
   maps.n["<leader>fw"] = { function() require("telescope.builtin").live_grep() end, desc = "Find words" }
   maps.n["<leader>fW"] = {
     function()

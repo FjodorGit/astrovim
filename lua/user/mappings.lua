@@ -11,10 +11,9 @@ return {
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>bD"] = {
       function()
-        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr)
-          require("astronvim.utils.buffer").close(
-            bufnr)
-        end)
+        require("astronvim.utils.status").heirline.buffer_picker(
+          function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
+        )
       end,
       desc = "Pick to close",
     },
@@ -27,22 +26,24 @@ return {
     -- quickly switch buffers / !!! conflicts with switching windows up and down
     -- ["<C-j>"] = { ":bp<cr>", desc = "Moves one tab to the left" },
     -- ["<C-k>"] = { ":bn<cr>", desc = "Moves one tab to the right" }
-    ["<C-n>"] = { ":bp<cr>", desc = "Moves one tab to the left" },
-    ["<C-p>"] = { ":bn<cr>", desc = "Moves one tab to the right" },
-    -- Testing
-    ['<leader>t'] = { name = " Testing" },
-    ["<leader>tt"] = {
-      function()
-        require("neotest").run.run()
-      end,
-      desc = "Run nearest test"
+    ["<C-p>"] = {
+      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Next buffer",
     },
-    ['<leader>gg'] = {
-      function()
-        require("neogit").open()
-      end,
-      desc = 'Open git status window'
-    }
+    ["<C-n>"] = {
+      function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+      desc = "Previous buffer",
+    },
+    -- Testing
+    ["<leader>t"] = { name = " Testing" },
+    ["<leader>tt"] = {
+      function() require("neotest").run.run() end,
+      desc = "Run nearest test",
+    },
+    ["<leader>gg"] = {
+      function() require("neogit").open() end,
+      desc = "Open git status window",
+    },
   },
   t = {
     -- setting a mapping to false will disable it
@@ -51,6 +52,6 @@ return {
   i = {
     -- quickly switch buffers even when in insert mode
     ["<C-n>"] = { "<cmd>bp<cr>", desc = "Moves one tab to the left" },
-    ["<C-p>"] = { "<cmd>:bn<cr>", desc = "Moves one tab to the right" }
-  }
+    ["<C-p>"] = { "<cmd>:bn<cr>", desc = "Moves one tab to the right" },
+  },
 }
