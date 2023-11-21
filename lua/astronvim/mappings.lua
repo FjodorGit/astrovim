@@ -1,6 +1,6 @@
 -- TODO: replace <leader> to <Leader> everywhere in AstroNvim v4 to match vimdoc
 local utils = require "astronvim.utils"
-local get_icon = utils.get_icon
+-- local get_icon = utils.get_icon
 local is_available = utils.is_available
 local ui = require "astronvim.utils.ui"
 
